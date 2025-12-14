@@ -53,6 +53,13 @@ header {
     padding: 0 20px;
 }
 
+/* 🔹 Control de textos largos (ES / EN) */
+.perfil-info p {
+    max-width: 620px;
+    margin: 0.6rem auto;
+    line-height: 1.6;
+}
+
 .typewriter {
     font-size: 65px;
     overflow: hidden;        
@@ -108,7 +115,7 @@ section {
     text-align: center;
 }
 
-/* 🔹 CAMBIO IMPORTANTE: ahora los proyectos usan grid para que se vean en 2 columnas */
+/* 🔹 PROYECTOS */
 .proyectos {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -130,7 +137,7 @@ section {
 }
 .proyecto img {
     width: 100%;
-    height: 220px;  /* 🔹 Más grandes */
+    height: 220px;
     object-fit: cover;
     border-radius: 5px;
     margin-bottom: 1rem;
@@ -140,17 +147,22 @@ section {
     box-shadow: 0 0 18px rgba(255, 126, 0, 0.7);
 }
 
-/* 🔹 Estilo especial para el título de Proyectos */
 #proyectos h2 {
-    font-size: 3rem; /* más grande */
-    color: var(--accent-color); /* naranja */
+    font-size: 3rem;
+    color: var(--accent-color);
     margin-bottom: 2rem;
+}
+
+/* 🔹 Fallback: asegura visibilidad de proyectos */
+#proyectos.scroll-fade {
+    opacity: 1;
+    transform: none;
 }
 
 /* Responsive */
 @media (max-width: 992px) {
     .proyectos {
-        grid-template-columns: 1fr; /* 🔹 en tablets/móviles pasa a 1 columna */
+        grid-template-columns: 1fr;
     }
 }
 @media (max-width: 600px) {
@@ -236,6 +248,7 @@ i:hover {
     color: #ff7e00;
 }
 
+/* Animación scroll */
 .scroll-fade {
     opacity: 0;
     transform: translateY(12px);
@@ -246,7 +259,7 @@ i:hover {
     transform: none;
 }
 
-/* Botón de idioma */
+/* Botón idioma */
 .lang-switch {
     position: fixed;
     top: 15px;
@@ -255,7 +268,8 @@ i:hover {
     display: flex;
     gap: 10px;
 }
-.lang-switch button {
+.lang-switch button,
+.lang-switch a {
     background: #d48207;
     border: none;
     padding: 8px 14px;
@@ -264,17 +278,21 @@ i:hover {
     font-size: 14px;
     font-weight: bold;
     color: #fff;
+    text-decoration: none;
     transition: transform 0.2s, background 0.3s;
 }
-.lang-switch button:hover {
+.lang-switch button:hover,
+.lang-switch a:hover {
     transform: scale(1.1);
     background: #ff9e33;
 }
 
+/* Nombre dividido */
 .nombre-linea {
     display: block;
 }
 
+/* Texto del rol */
 .rol-texto {
     max-width: 700px;
     margin: 1.5rem auto 0;
