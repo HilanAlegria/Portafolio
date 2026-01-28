@@ -23,6 +23,20 @@ body {
     line-height: 1.6;
 }
 
+/* --- NAVEGACIÓN RESPONSIVE --- */
+nav {
+    position: sticky; top: 0; z-index: 1000;
+    background-color: rgba(18, 18, 18, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 126, 0, 0.3);
+}
+nav ul { 
+    list-style: none; display: flex; justify-content: center; 
+    padding: 1rem; margin: 0; gap: clamp(1rem, 3vw, 2rem); flex-wrap: wrap; 
+}
+nav ul li a { color: var(--text-color); text-decoration: none; font-weight: 500; transition: 0.3s; }
+nav ul li a:hover { color: var(--accent-color); }
+
 /* --- HEADER & MATRIX --- */
 header {
     position: relative;
@@ -66,7 +80,7 @@ header {
 }
 
 .typewriter-hero {
-    font-size: 4.5rem;
+    font-size: clamp(2.2rem, 5vw, 4.5rem); /* Ajuste fluido */
     font-weight: 700;
     margin: 10px 0;
     line-height: 1.1;
@@ -75,13 +89,13 @@ header {
 }
 
 .hero-description {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2vw, 1.2rem);
     color: #ccc;
     max-width: 450px;
     margin-bottom: 2rem;
 }
 
-/* --- FOTO DE PERFIL GIGANTE --- */
+/* --- FOTO DE PERFIL GIGANTE RESPONSIVE --- */
 .perfil-foto-hero {
     flex: 1.2;
     display: flex;
@@ -115,7 +129,7 @@ header {
 .perfil-foto-hero .img-hero {
     width: auto;
     height: 95vh; 
-    max-width: none;
+    max-width: 100%; /* No se sale en tablets */
     object-fit: contain;
     filter: drop-shadow(0 0 30px rgba(255, 126, 0, 0.25));
     transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -134,7 +148,7 @@ header {
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid var(--glass-border);
     border-radius: 30px;
-    padding: 4rem 3rem;
+    padding: clamp(1.5rem, 5vw, 4rem) clamp(1rem, 5vw, 3rem);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
     width: 100%;
     transition: var(--transition);
@@ -146,14 +160,14 @@ header {
 
 /* --- SECCIONES GENERALES --- */
 section {
-    padding: 6rem 2rem;
+    padding: clamp(3rem, 10vw, 6rem) 1.5rem;
     max-width: 1200px;
     margin: auto;
     text-align: center;
 }
 
 h2 {
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
     margin-bottom: 3rem;
     position: relative;
     display: inline-block;
@@ -164,19 +178,19 @@ h2::after {
     position: absolute; bottom: -10px; left: 20%;
 }
 
-/* --- SOBRE MÍ (LECTURA OPTIMIZADA) --- */
+/* --- SOBRE MÍ --- */
 #sobre-mi p {
     max-width: 850px;
     margin: 0 auto;
-    font-size: 1.15rem;
+    font-size: clamp(1rem, 2vw, 1.15rem);
     line-height: 1.8;
     color: #ddd;
 }
 
-/* --- PROYECTOS --- */
+/* --- PROYECTOS RESPONSIVE --- */
 .proyectos {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
     gap: 2rem;
 }
 
@@ -198,95 +212,10 @@ h2::after {
     object-fit: cover !important;
 }
 
-.proyecto h3 { margin: 1.5rem 0 0.5rem; font-size: 1.4rem; color: white; }
-.proyecto p { padding: 0 1.5rem; font-size: 0.95rem; color: #ccc; flex-grow: 1; }
-.proyecto a { font-size: 1.5rem; color: var(--text-color); margin: 1rem 0; transition: 0.3s; }
-.proyecto a:hover { color: var(--accent-color); }
-
-/* --- HABILIDADES --- */
-.habilidades-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; list-style: none; padding: 0; }
-.habilidades-list li {
-    border: 1px solid rgba(255, 126, 0, 0.3);
-    padding: 0.6rem 1.2rem;
-    border-radius: 50px;
-    background: rgba(255, 255, 255, 0.03);
-    display: flex; align-items: center; gap: 0.5rem;
-    transition: var(--transition);
-}
-.habilidades-list li:hover { background: var(--accent-color); color: black; }
-
-/* --- CONTACTO --- */
-.contacto-container { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; text-align: left; }
-.contact-form { display: flex; flex-direction: column; gap: 1rem; }
-.contact-form input, .contact-form textarea {
-    background: #1a1a1a; border: 1px solid #333; border-radius: 8px;
-    padding: 1rem; color: white; font-family: inherit;
-}
-.btn-submit { background: var(--accent-color); color: black; font-weight: 700; padding: 1rem; border: none; border-radius: 8px; cursor: pointer; }
-.contacto-info p { display: flex; align-items: center; gap: 10px; margin-bottom: 1rem; }
-
-/* --- ICONOS DE REDES SOCIALES (CAMBIO APLICADO) --- */
-.social-links { display: flex; gap: 2rem; margin-top: 1.5rem; }
-.social-links a { 
-    color: white; 
-    font-size: 2.8rem; /* Tamaño más grande solicitado */
-    transition: var(--transition); 
-    display: inline-block;
-}
-.social-links a:hover { 
-    color: var(--accent-color); 
-    transform: scale(1.2); /* Efecto de agrandado */
-}
-
-/* --- NAVEGACIÓN --- */
-nav {
-    position: sticky; top: 0; z-index: 1000;
-    background-color: rgba(18, 18, 18, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 126, 0, 0.3);
-}
-nav ul { list-style: none; display: flex; justify-content: center; padding: 1rem; margin: 0; gap: 2rem; }
-nav ul li a { color: var(--text-color); text-decoration: none; font-weight: 500; transition: 0.3s; }
-nav ul li a:hover { color: var(--accent-color); }
-
-/* --- BOTÓN CV --- */
-.btn-cv {
-    display: inline-flex; align-items: center; gap: 10px;
-    background: var(--accent-color); color: black;
-    padding: 12px 30px; border-radius: 50px; font-weight: 700;
-    text-decoration: none; transition: var(--transition);
-}
-.btn-cv:hover { background: var(--accent-hover); transform: translateY(-3px); }
-
-/* --- FOOTER --- */
-footer { padding: 3rem; text-align: center; border-top: 1px solid #222; margin-top: 4rem; color: #777; }
-
-/* --- ANIMACIONES --- */
-@keyframes fadeInInfo { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
-@keyframes fadeInPhoto { from { opacity: 0; transform: scale(0.95) translateY(50px); } to { opacity: 1; transform: scale(1) translateY(0); } }
-@keyframes pulseGlow { 0%, 100% { transform: scale(1); opacity: 0.3; } 50% { transform: scale(1.1); opacity: 0.5; } }
-
-/* --- RESPONSIVE --- */
-@media (max-width: 968px) {
-    .section-card { padding: 2rem 1.5rem; }
-    .perfil-container { flex-direction: column; text-align: center; padding-top: 5rem; }
-    .perfil-info { order: 2; padding-right: 0; }
-    .perfil-foto-hero { order: 1; height: auto; }
-    .perfil-foto-hero .img-hero { height: 60vh; max-width: 100%; }
-    .contacto-container { grid-template-columns: 1fr; }
-    .typewriter-hero { font-size: 2.8rem; }
-    .social-links { justify-content: center; } /* Centra iconos en móvil */
-}
-
-.scroll-fade { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
-.scroll-fade.is-visible { opacity: 1; transform: translateY(0); }
-.lang-switch { position: fixed; bottom: 20px; right: 20px; z-index: 2000; }
-.lang-switch button { background: var(--accent-color); border: none; padding: 10px; border-radius: 5px; cursor: pointer; font-weight: bold; }
-
 /* --- HABILIDADES INTERACTIVAS --- */
 .habilidades-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
     gap: 1rem;
     list-style: none;
     padding: 0;
@@ -299,7 +228,8 @@ footer { padding: 3rem; text-align: center; border-top: 1px solid #222; margin-t
     border-radius: 15px;
     cursor: pointer;
     transition: var(--transition);
-    overflow: hidden; /* Necesario para el efecto de expansión */
+    overflow: hidden;
+    text-align: left;
 }
 
 .habilidades-list li:hover {
@@ -310,11 +240,11 @@ footer { padding: 3rem; text-align: center; border-top: 1px solid #222; margin-t
 .skill-header {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Separa el nombre de la flecha */
+    justify-content: space-between;
     font-weight: 600;
 }
 
-.skill-header div { display: flex; align-items: center; gap: 10px; } /* Para alinear icono y texto */
+.skill-header div { display: flex; align-items: center; gap: 10px; }
 
 .arrow-icon {
     font-size: 0.8rem;
@@ -322,7 +252,6 @@ footer { padding: 3rem; text-align: center; border-top: 1px solid #222; margin-t
     color: var(--accent-color);
 }
 
-/* La descripción empieza oculta */
 .skill-desc {
     max-height: 0;
     opacity: 0;
@@ -331,13 +260,11 @@ footer { padding: 3rem; text-align: center; border-top: 1px solid #222; margin-t
     font-size: 0.9rem;
     color: #bbb;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    text-align: left;
-    pointer-events: none; /* Evita clics accidentales mientras está oculta */
+    pointer-events: none;
 }
 
-/* Clase que se activará con JS */
 .habilidades-list li.active .skill-desc {
-    max-height: 100px; /* Ajusta según el largo del texto */
+    max-height: 150px;
     opacity: 1;
     padding-top: 1rem;
 }
@@ -345,3 +272,68 @@ footer { padding: 3rem; text-align: center; border-top: 1px solid #222; margin-t
 .habilidades-list li.active .arrow-icon {
     transform: rotate(180deg);
 }
+
+/* --- CONTACTO Y REDES --- */
+.contacto-container { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 3rem; 
+    text-align: left; 
+}
+
+.contact-form { display: flex; flex-direction: column; gap: 1rem; }
+
+.contact-form input, .contact-form textarea {
+    background: #1a1a1a; border: 1px solid #333; border-radius: 8px;
+    padding: 1rem; color: white; font-family: inherit;
+}
+
+.social-links { display: flex; gap: 2.5rem; margin-top: 1.5rem; }
+
+.social-links a { 
+    color: white; 
+    font-size: 2.8rem; /* Tamaño grande mantenido */
+    transition: var(--transition); 
+    display: inline-block;
+}
+
+.social-links a:hover { 
+    color: var(--accent-color); 
+    transform: scale(1.2); 
+}
+
+/* --- BOTÓN CV --- */
+.btn-cv {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--accent-color); color: black;
+    padding: 12px 30px; border-radius: 50px; font-weight: 700;
+    text-decoration: none; transition: var(--transition);
+}
+
+/* --- RESPONSIVE (MEDIA QUERIES) --- */
+@media (max-width: 968px) {
+    .perfil-container { flex-direction: column; text-align: center; padding-top: 5rem; }
+    .perfil-info { order: 2; padding-right: 0; }
+    .perfil-foto-hero { order: 1; height: auto; margin-bottom: 2rem; }
+    .perfil-foto-hero .img-hero { height: 50vh; }
+    .hero-description { margin: 0 auto 2rem; }
+    .social-links { justify-content: center; }
+}
+
+@media (max-width: 480px) {
+    .section-card { border-radius: 20px; }
+    nav ul { gap: 0.8rem; font-size: 0.9rem; }
+    .social-links a { font-size: 2.3rem; }
+    .btn-cv { width: 100%; justify-content: center; }
+}
+
+/* --- ANIMACIONES --- */
+@keyframes fadeInInfo { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes fadeInPhoto { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+@keyframes pulseGlow { 0%, 100% { transform: scale(1); opacity: 0.3; } 50% { transform: scale(1.1); opacity: 0.5; } }
+
+.scroll-fade { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
+.scroll-fade.is-visible { opacity: 1; transform: translateY(0); }
+
+.lang-switch { position: fixed; bottom: 20px; right: 20px; z-index: 2000; }
+.lang-switch button { background: var(--accent-color); border: none; padding: 10px; border-radius: 5px; cursor: pointer; font-weight: bold; color: black; }

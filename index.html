@@ -236,12 +236,21 @@
     <div class="section-card">
         <h2 data-es="Contáctame" data-en="Contact Me">Contact Me</h2>
         <div class="contacto-container">
-            <form action="https://formspree.io/f/TU_ID_AQUI" method="POST" class="contact-form">
-                <div class="form-group"><input type="text" name="name" placeholder="Nombre / Name" required></div>
-                <div class="form-group"><input type="email" name="email" placeholder="Email" required></div>
-                <div class="form-group"><textarea name="message" rows="5" placeholder="Mensaje / Message" required></textarea></div>
+            <form action="https://formspree.io/f/mojwvwoq" method="POST" class="contact-form">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Nombre / Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="_replyto" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" rows="5" placeholder="Mensaje / Message" required></textarea>
+                </div>
+                <input type="hidden" name="_subject" value="Nuevo mensaje desde tu Portafolio">
+                
                 <button type="submit" class="btn-submit" data-es="Enviar Mensaje" data-en="Send Message">Send Message</button>
             </form>
+
             <div class="contacto-info">
                 <p><i class="bi bi-person-circle"></i> Hilan Eduardo Alegria Yate</p>
                 <p><i class="bi bi-envelope"></i> eduardoalegriayate@gmail.com</p>
