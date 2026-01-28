@@ -97,3 +97,16 @@ if (cvBtn) {
     // Si tienes archivos diferentes: docs/cv_es.pdf y docs/cv_en.pdf
     cvBtn.setAttribute('href', `docs/CV_Hilan_${lang}.pdf`);
 }
+
+function toggleSkill(element) {
+    // Si quieres que solo una descripción esté abierta a la vez:
+    const allSkills = document.querySelectorAll('.habilidades-list li');
+    allSkills.forEach(skill => {
+        if (skill !== element) {
+            skill.classList.remove('active');
+        }
+    });
+
+    // Alterna la clase active en el elemento clickeado
+    element.classList.toggle('active');
+}

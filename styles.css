@@ -282,3 +282,66 @@ footer { padding: 3rem; text-align: center; border-top: 1px solid #222; margin-t
 .scroll-fade.is-visible { opacity: 1; transform: translateY(0); }
 .lang-switch { position: fixed; bottom: 20px; right: 20px; z-index: 2000; }
 .lang-switch button { background: var(--accent-color); border: none; padding: 10px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+
+/* --- HABILIDADES INTERACTIVAS --- */
+.habilidades-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+}
+
+.habilidades-list li {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 126, 0, 0.2);
+    padding: 1.2rem;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: var(--transition);
+    overflow: hidden; /* Necesario para el efecto de expansión */
+}
+
+.habilidades-list li:hover {
+    border-color: var(--accent-color);
+    background: rgba(255, 126, 0, 0.05);
+}
+
+.skill-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Separa el nombre de la flecha */
+    font-weight: 600;
+}
+
+.skill-header div { display: flex; align-items: center; gap: 10px; } /* Para alinear icono y texto */
+
+.arrow-icon {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+    color: var(--accent-color);
+}
+
+/* La descripción empieza oculta */
+.skill-desc {
+    max-height: 0;
+    opacity: 0;
+    margin: 0;
+    padding-top: 0;
+    font-size: 0.9rem;
+    color: #bbb;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: left;
+    pointer-events: none; /* Evita clics accidentales mientras está oculta */
+}
+
+/* Clase que se activará con JS */
+.habilidades-list li.active .skill-desc {
+    max-height: 100px; /* Ajusta según el largo del texto */
+    opacity: 1;
+    padding-top: 1rem;
+}
+
+.habilidades-list li.active .arrow-icon {
+    transform: rotate(180deg);
+}
