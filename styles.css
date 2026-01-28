@@ -6,6 +6,8 @@
     --card-color: #121212;
     --accent-color: #ff7e00; 
     --accent-hover: #ffb347;
+    --glass-bg: rgba(25, 25, 25, 0.4); 
+    --glass-border: rgba(255, 255, 255, 0.05);
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -33,13 +35,8 @@ header {
 
 #matrix {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    background: black;
-    filter: brightness(0.4);
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 0; background: black; filter: brightness(0.4);
 }
 
 .perfil-container {
@@ -51,12 +48,10 @@ header {
     width: 100%;
     max-width: 1600px; 
     padding: 0 5%;
-    gap: 0;
 }
 
-/* --- LADO IZQUIERDO --- */
 .perfil-info {
-    flex: 0.8; 
+    flex: 0.8;
     text-align: left;
     animation: fadeInInfo 1s ease-out;
     padding-right: 2rem;
@@ -86,12 +81,12 @@ header {
     margin-bottom: 2rem;
 }
 
-/* --- LADO DERECHO (FOTO MUCHO MÁS GRANDE) --- */
+/* --- FOTO DE PERFIL GIGANTE --- */
 .perfil-foto-hero {
-    flex: 1.2; 
+    flex: 1.2;
     display: flex;
     justify-content: flex-end;
-    align-items: flex-end; 
+    align-items: flex-end;
     position: relative;
     height: 100vh;
     animation: fadeInPhoto 1.2s ease-out;
@@ -108,8 +103,7 @@ header {
 
 .foto-bg-shape {
     position: absolute;
-    width: 120%; 
-    height: 90%;
+    width: 120%; height: 90%;
     background: radial-gradient(circle, rgba(255, 126, 0, 0.4) 0%, transparent 70%);
     border-radius: 50%;
     z-index: -1;
@@ -118,86 +112,43 @@ header {
     animation: pulseGlow 5s infinite ease-in-out;
 }
 
-.img-hero {
+.perfil-foto-hero .img-hero {
     width: auto;
     height: 95vh; 
-    max-width: none; 
+    max-width: none;
     object-fit: contain;
     filter: drop-shadow(0 0 30px rgba(255, 126, 0, 0.25));
     transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: block;
 }
 
-.img-hero:hover {
+.perfil-foto-hero .img-hero:hover {
     transform: scale(1.03);
     filter: drop-shadow(0 0 60px rgba(255, 126, 0, 0.5));
 }
 
-/* --- ANIMACIONES --- */
-@keyframes fadeInInfo {
-    from { opacity: 0; transform: translateX(-50px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes fadeInPhoto {
-    from { opacity: 0; transform: scale(0.95) translateY(50px); }
-    to { opacity: 1; transform: scale(1) translateY(0); }
-}
-
-@keyframes pulseGlow {
-    0%, 100% { transform: scale(1); opacity: 0.3; }
-    50% { transform: scale(1.2); opacity: 0.6; }
-}
-
-/* --- NAVEGACIÓN STICKY --- */
-nav {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background-color: rgba(18, 18, 18, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 126, 0, 0.3);
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    padding: 1rem;
-    margin: 0;
-    gap: 2rem;
-}
-
-nav ul li a {
-    color: var(--text-color);
-    text-decoration: none;
-    font-weight: 500;
+/* --- RECUADRO GRIS DIFUMINADO --- */
+.section-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    border-radius: 30px;
+    padding: 4rem 3rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    width: 100%;
     transition: var(--transition);
 }
 
-nav ul li a:hover { color: var(--accent-color); }
+.section-card:hover {
+    border-color: rgba(255, 126, 0, 0.2);
+}
 
-/* --- SECCIONES --- */
+/* --- SECCIONES GENERALES --- */
 section {
     padding: 6rem 2rem;
     max-width: 1200px;
     margin: auto;
-    text-align: center;
-}
-
-/* ESTO MEJORA LA LECTURA DE "SOBRE MÍ" */
-#sobre-mi {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#sobre-mi p {
-    max-width: 850px; /* Limita el ancho del párrafo para que no canse la vista */
-    margin: 0 auto;
-    font-size: 1.15rem;
-    line-height: 1.8; /* Espaciado entre líneas más cómodo */
-    color: #ddd;
     text-align: center;
 }
 
@@ -209,10 +160,17 @@ h2 {
 }
 
 h2::after {
-    content: '';
-    width: 60%; height: 4px;
-    background: var(--accent-color);
+    content: ''; width: 60%; height: 4px; background: var(--accent-color);
     position: absolute; bottom: -10px; left: 20%;
+}
+
+/* --- SOBRE MÍ (LECTURA OPTIMIZADA) --- */
+#sobre-mi p {
+    max-width: 850px;
+    margin: 0 auto;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #ddd;
 }
 
 /* --- PROYECTOS --- */
@@ -223,7 +181,7 @@ h2::after {
 }
 
 .proyecto {
-    background: var(--card-color);
+    background: rgba(18, 18, 18, 0.6);
     border-radius: 15px;
     overflow: hidden;
     border: 1px solid #222;
@@ -232,43 +190,64 @@ h2::after {
     flex-direction: column;
 }
 
-.proyecto:hover {
-    transform: translateY(-10px);
-    border-color: var(--accent-color);
+.proyecto:hover { transform: translateY(-10px); border-color: var(--accent-color); }
+
+.proyecto img {
+    width: 100% !important;
+    height: 200px !important;
+    object-fit: cover !important;
 }
 
-.proyecto img { width: 100%; height: 200px; object-fit: cover; }
-.proyecto a { font-size: 1.5rem; color: var(--text-color); margin-bottom: 1rem; }
+.proyecto h3 { margin: 1.5rem 0 0.5rem; font-size: 1.4rem; color: white; }
+.proyecto p { padding: 0 1.5rem; font-size: 0.95rem; color: #ccc; flex-grow: 1; }
+.proyecto a { font-size: 1.5rem; color: var(--text-color); margin: 1rem 0; transition: 0.3s; }
+.proyecto a:hover { color: var(--accent-color); }
 
 /* --- HABILIDADES --- */
-.habilidades-list {
-    display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; list-style: none; padding: 0;
-}
-
+.habilidades-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; list-style: none; padding: 0; }
 .habilidades-list li {
     border: 1px solid rgba(255, 126, 0, 0.3);
     padding: 0.6rem 1.2rem;
     border-radius: 50px;
+    background: rgba(255, 255, 255, 0.03);
     display: flex; align-items: center; gap: 0.5rem;
     transition: var(--transition);
 }
-
 .habilidades-list li:hover { background: var(--accent-color); color: black; }
 
-/* --- FORMULARIO Y CONTACTO --- */
-.contacto-container {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; text-align: left;
-}
-
+/* --- CONTACTO --- */
+.contacto-container { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; text-align: left; }
 .contact-form { display: flex; flex-direction: column; gap: 1rem; }
 .contact-form input, .contact-form textarea {
     background: #1a1a1a; border: 1px solid #333; border-radius: 8px;
     padding: 1rem; color: white; font-family: inherit;
 }
-.btn-submit {
-    background: var(--accent-color); color: black; font-weight: 700;
-    padding: 1rem; border: none; border-radius: 8px; cursor: pointer;
+.btn-submit { background: var(--accent-color); color: black; font-weight: 700; padding: 1rem; border: none; border-radius: 8px; cursor: pointer; }
+.contacto-info p { display: flex; align-items: center; gap: 10px; margin-bottom: 1rem; }
+
+/* --- ICONOS DE REDES SOCIALES (CAMBIO APLICADO) --- */
+.social-links { display: flex; gap: 2rem; margin-top: 1.5rem; }
+.social-links a { 
+    color: white; 
+    font-size: 2.8rem; /* Tamaño más grande solicitado */
+    transition: var(--transition); 
+    display: inline-block;
 }
+.social-links a:hover { 
+    color: var(--accent-color); 
+    transform: scale(1.2); /* Efecto de agrandado */
+}
+
+/* --- NAVEGACIÓN --- */
+nav {
+    position: sticky; top: 0; z-index: 1000;
+    background-color: rgba(18, 18, 18, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 126, 0, 0.3);
+}
+nav ul { list-style: none; display: flex; justify-content: center; padding: 1rem; margin: 0; gap: 2rem; }
+nav ul li a { color: var(--text-color); text-decoration: none; font-weight: 500; transition: 0.3s; }
+nav ul li a:hover { color: var(--accent-color); }
 
 /* --- BOTÓN CV --- */
 .btn-cv {
@@ -277,24 +256,29 @@ h2::after {
     padding: 12px 30px; border-radius: 50px; font-weight: 700;
     text-decoration: none; transition: var(--transition);
 }
+.btn-cv:hover { background: var(--accent-hover); transform: translateY(-3px); }
+
+/* --- FOOTER --- */
+footer { padding: 3rem; text-align: center; border-top: 1px solid #222; margin-top: 4rem; color: #777; }
+
+/* --- ANIMACIONES --- */
+@keyframes fadeInInfo { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes fadeInPhoto { from { opacity: 0; transform: scale(0.95) translateY(50px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+@keyframes pulseGlow { 0%, 100% { transform: scale(1); opacity: 0.3; } 50% { transform: scale(1.1); opacity: 0.5; } }
 
 /* --- RESPONSIVE --- */
-@media (max-width: 1100px) {
-    .typewriter-hero { font-size: 3.5rem; }
-    .img-hero { height: 80vh; }
-}
-
 @media (max-width: 968px) {
+    .section-card { padding: 2rem 1.5rem; }
     .perfil-container { flex-direction: column; text-align: center; padding-top: 5rem; }
     .perfil-info { order: 2; padding-right: 0; }
     .perfil-foto-hero { order: 1; height: auto; }
-    .img-hero { height: 60vh; max-width: 100%; }
+    .perfil-foto-hero .img-hero { height: 60vh; max-width: 100%; }
+    .contacto-container { grid-template-columns: 1fr; }
     .typewriter-hero { font-size: 2.8rem; }
-    .foto-bg-shape { width: 100%; height: 100%; }
+    .social-links { justify-content: center; } /* Centra iconos en móvil */
 }
 
 .scroll-fade { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
 .scroll-fade.is-visible { opacity: 1; transform: translateY(0); }
-
 .lang-switch { position: fixed; bottom: 20px; right: 20px; z-index: 2000; }
 .lang-switch button { background: var(--accent-color); border: none; padding: 10px; border-radius: 5px; cursor: pointer; font-weight: bold; }
