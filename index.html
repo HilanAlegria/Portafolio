@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Hilan Eduardo Alegria Yate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header id="Inicio">
+    <canvas id="matrix"></canvas>
+    
+    <div class="perfil-container">
+        <div class="perfil-info">
+            <span class="badge-hero" data-es="Estudiante de Ingeniería" data-en="Engineering Student">Engineering Student</span>
+            <h1 class="typewriter-hero" 
+                data-es="Hilan Eduardo Alegria Yate." 
+                data-en="Hilan Eduardo Alegria Yate.">
+                Hilan Eduardo Alegria Yate.
+            </h1>
+            <p class="hero-description" data-es="Estudiante de Ingeniería de Sistemas - Universidad Santiago Cali. Desarrollador web front-end y back-end apasionado por la innovación."
+               data-en="Systems Engineering Student - Universidad Santiago Cali. Front-end and Back-end Web Developer passionate about innovation.">
+               Systems Engineering Student - Universidad Santiago Cali. Front-end and Back-end Web Developer passionate about innovation.
+            </p>
+            
+            <div class="cv-container">
+                <a href="https://docs.google.com/uc?export=download&id=16zLH5pBjInKpl4sbS02nOrS80dTS4BYI" 
+                   class="btn-cv" 
+                   data-es="Descargar CV" 
+                   data-en="Download CV">
+                    <i class="bi bi-file-earmark-arrow-down"></i> Download CV
+                </a>
+            </div>
+        </div>
+
+        <div class="perfil-foto-hero">
+            <div class="foto-wrapper">
+        <div class="foto-bg-shape"></div> <img src="imagenes/foto perfil.png" alt="Hilan Alegria" class="img-hero" loading="lazy">
+    </div>
+</div>
+    </div>
+</header>
+
+<div class="lang-switch">
+    <button onclick="setLanguage('en')">EN</button>
+    <button onclick="setLanguage('es')">ES</button>
+</div>
+
+<nav>
+    <ul>
+        <li><a href="#sobre-mi" data-es="Sobre mí" data-en="About Me">About Me</a></li> 
+        <li><a href="#proyectos" data-es="Proyectos" data-en="Projects">Projects</a></li>
+        <li><a href="#habilidades" data-es="Habilidades" data-en="Skills">Skills</a></li>
+        <li><a href="#contacto" data-es="Contacto" data-en="Contact">Contact</a></li>
+    </ul>
+</nav>
+
+<section id="sobre-mi" class="scroll-fade">
+    <h2 data-es="Sobre mí" data-en="About Me">About Me</h2>
+    <p data-es="Soy estudiante de Ingeniería de Sistemas en la Universidad Santiago de Cali, apasionado por la tecnología,
+        el desarrollo de software y el aprendizaje continuo.
+        Me interesa especialmente el desarrollo web, la automatización de procesos y
+        el uso de la inteligencia artificial para crear soluciones prácticas.
+        Disfruto trabajar en proyectos que me reten y fortalezcan mis habilidades técnicas y analíticas."
+       data-en="I am Hilan Eduardo Alegria Yate, a Systems Engineering student at Universidad Santiago de Cali, passionate about technology and continuous learning...">
+       I am Hilan Eduardo Alegria Yate, a Systems Engineering student...
+    </p>
+    <h2 data-es="Estudios" data-en="Education">Education</h2>
+    <p data-es="Bachillerato: 2016 - 2021. Universidad: Universidad Santiago de Cali - 2022 - Actualidad"
+       data-en="High School: 2016 - 2021. University: Universidad Santiago de Cali - 2022 - Present">
+       High School: 2016 - 2021. University: Universidad Santiago de Cali - 2022 - Present
+    </p>
+</section>
+
+<section id="proyectos" class="scroll-fade">
+    <h2 data-es="Proyectos" data-en="Projects">Projects</h2>
+    <div class="proyectos">
+        <div class="proyecto">
+            <img src="imagenes/Proyecto 1.png" alt="Sabor Caleño" loading="lazy">
+            <h3 data-es="Panadería Sabor Caleño" data-en="Sabor Caleño Bakery">Sabor Caleño Bakery</h3>
+            <p data-es='Diseño de página web enfocada en dar a conocer productos locales.'
+               data-en='Website design focused on showcasing local products.'>
+               Website design focused on showcasing local products.
+            </p>
+            <a href="https://github.com/HilanAlegria/PanaderiaSC" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+        <div class="proyecto">
+            <img src="imagenes/proyecto 6.png" alt="Fundacion Terra Angels" loading="lazy">
+            <h3 data-es="Pagina web - Fundacion Terra Angels" data-en="Terra Angels">Terra Angels</h3>
+            <p data-es="Pagina web para presentación de la fundación Terra Angels."
+               data-en="Website for presenting the Terra Angels foundation.">
+               Website for presenting the Terra Angels foundation.
+            </p>
+            <a href="https://hilanalegria.github.io/Terra_Angels_Web/index.html#inicio" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+        <div class="proyecto">
+            <img src="imagenes/Proyecto 3.png" alt="Automation" loading="lazy">
+            <h3 data-es="Automatización de Lenguajes" data-en="Language Automation">Language Automation</h3>
+            <p data-es="Transformación de lenguajes mediante algoritmos de autómatas."
+               data-en="Language transformation using automata algorithms.">
+               Language transformation using automata algorithms.
+            </p>
+            <a href="https://github.com/HilanAlegria/Automatas" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+        <div class="proyecto">
+            <img src="imagenes/Proyecto 4.jpeg" alt="Metaverse" loading="lazy">
+            <h3 data-es="Back-end Metaverso" data-en="Metaverse Back-end">Metaverse Back-end</h3>
+            <p data-es="Investigación de infraestructura back-end para entornos virtuales."
+               data-en="Back-end infrastructure research for virtual environments.">
+               Back-end infrastructure research for virtual environments.
+            </p>
+            <a href="https://github.com/HilanAlegria/Trabajo-BackEnd_Metaverse" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+        <div class="proyecto">
+            <img src="imagenes/Proyecto 5.png" alt="Cancer Analysis" loading="lazy">
+            <h3 data-es="Análisis de Cáncer" data-en="Cancer Data Analysis">Cancer Data Analysis</h3>
+            <p data-es="Predicción de supervivencia utilizando modelos de Machine Learning."
+               data-en="Survival prediction using Machine Learning models.">
+               Survival prediction using Machine Learning models.
+            </p>
+            <a href="https://github.com/HilanAlegria/Analisis-BD-de-Cancer-prediccion" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+        <div class="proyecto">
+            <img src="imagenes/Proyecto 7.jpeg" alt="Inteligencia Artificial" loading="lazy">
+            <h3 data-es="Proyecto de Inteligencia Artificial" data-en="Artificial Intelligence Project">Artificial Intelligence Project</h3>
+            <p data-es="Proyecto de inteligencia artificial usando python3 y liberias para automatizacion y gestion de correos para reuncones o citas, utilizando Ziper y google
+            caelendar api."
+               data-en="Proyecto de inteligencia artificial usando python3 y liberias para automatizacion y gestion de correos para reuncones o citas, utilizando Ziper y google
+            caelendar api.">
+               Inteligencia Artificial.
+            </p>
+            <a href="https://github.com/HilanAlegria/Proyecto-de-Inteligencia-Artificial" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+    </div>
+</section>
+
+<section id="habilidades" class="scroll-fade">
+    <h2 data-es="Habilidades" data-en="Skills">Skills</h2>
+    <ul class="habilidades-list">
+        <li><i class="fab fa-python"></i> Python</li>
+        <li><i class="fab fa-html5"></i> HTML5</li>
+        <li><i class="fab fa-css3-alt"></i> CSS3</li>
+        <li><i class="fab fa-js"></i> JavaScript</li>
+        <li><i class="bi bi-file-excel"></i> Excel</li>
+        <li><i class="fab fa-github"></i> GitHub</li>
+        <li><i class="bi bi-code-slash"></i> VS Code</li>
+        <li><i class="bi bi-router"></i> Cisco</li>
+    </ul>
+</section>
+
+<section id="contacto" class="scroll-fade">
+    <h2 data-es="Contáctame" data-en="Contact Me">Contact Me</h2>
+    <div class="contacto-container">
+        <form action="https://formspree.io/f/TU_ID_AQUI" method="POST" class="contact-form">
+            <div class="form-group"><input type="text" name="name" placeholder="Nombre / Name" required></div>
+            <div class="form-group"><input type="email" name="email" placeholder="Email" required></div>
+            <div class="form-group"><textarea name="message" rows="5" placeholder="Mensaje / Message" required></textarea></div>
+            <button type="submit" class="btn-submit" data-es="Enviar Mensaje" data-en="Send Message">Send Message</button>
+        </form>
+        <div class="contacto-info">
+            <p><i class="bi bi-person-circle"></i> Hilan Eduardo Alegria Yate</p>
+            <p><i class="bi bi-envelope"></i> eduardoalegriayate@gmail.com</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/hilan-alegria-yate-07063629a" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/HilanAlegria" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p data-es="© 2026 Hilan Eduardo Alegria Yate - Portafolio" data-en="© 2026 Hilan Eduardo Alegria Yate - Portfolio">© 2026 Hilan Eduardo Alegria Yate - Portfolio</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
